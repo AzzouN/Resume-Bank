@@ -52,4 +52,7 @@ export default {
 #upload {
   margin-top: 100px;
 }
+#search {
+  margin-top: 100px;
+}
 </style>

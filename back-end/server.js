@@ -7,6 +7,7 @@ const pdf = require('pdf-parse');
 const { createWorker } = require('tesseract.js');
 const { Client } = require('@elastic/elasticsearch')
 var bodyParser = require('body-parser')
+const cors = require('cors');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -16,11 +17,13 @@ app.use(express.static('resumes'));
 app.use(upload()); 
 // parse application/json
 app.use(bodyParser.json())
+// Handle CORS
+app.use(cors());
 
 
 // API End point responsable for storing Resumes
 app.post('/resumes', (req, res) => {
-    const resume = req.files.resume;
+    const resume = req.files.file;
     let extension = resume.name.split('.')[resume.name.split('.').length - 1];
     let filename = `${uuidv4()}.${extension}`;
     resume.mv("resumes/" + filename, (err, result) => {
@@ -32,6 +35,7 @@ app.post('/resumes', (req, res) => {
         reader.getText(`resumes/${filename}`).then((data) => {
             // Storing and indexing
             res.send({
+                status: 200,
                 message: 'Resume uploaded!'
             });
             storeInES(data, filename);
@@ -40,6 +44,7 @@ app.post('/resumes', (req, res) => {
             // Recognize text using OCR
             const worker = createWorker();
             res.send({
+                status: 202,
                 message: 'Resume uploaded and will be indexed soon'
             });
             (async () => {
@@ -78,7 +83,8 @@ async function storeInES(text, filename) {
 }
 
 // API End point responsable for searching Resumes
-app.get('/resumes', (req, res) => {
+app.post('/resumes/search', (req, res) => {
+    console.log(req.body);
     let mustQuery = JSON.parse(JSON.stringify(req.body.query.must).split(',').join(' AND '));
     let optionalQuery = req.body.query.optional;
     let alternativesQuery = req.body.query.alternatives;
