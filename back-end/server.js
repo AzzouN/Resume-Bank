@@ -95,8 +95,7 @@ app.get('/resumes', (req, res) => {
             if (mustQuery.length > 0) {
                 query.bool.must.push({
                     query_string: {
-                        query: mustQuery,
-                        fuzziness: "AUTO"
+                        query: mustQuery
                     }
                 });
             }
@@ -104,8 +103,7 @@ app.get('/resumes', (req, res) => {
                 alternativesQuery.map(element => {
                     query.bool.must.push({
                         query_string: {
-                            query: element.split(',').join(' OR '),
-                            fuzziness: "AUTO"
+                            query: element.split(',').join(' OR ')
                         }
                     });
                 });
@@ -116,8 +114,7 @@ app.get('/resumes', (req, res) => {
             optionalQuery.split(',').map(element => {
                 query.bool.should.push({
                     query_string: {
-                        query: element,
-                        fuzziness: "AUTO"
+                        query: element
                     }
                 });
             })
