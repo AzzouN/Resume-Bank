@@ -1,9 +1,9 @@
 <template>
   <div id="app">
-    <!--<HelloWorld msg="Welcome to Your Vue.js App"/>-->
-    <vs-navbar center-collapsed v-model="active">
+    <div>
+      <vs-navbar center-collapsed v-model="active">
         <template #left>
-          <img id="logo" src="curriculum-vitae.png" alt="">
+          <img id="logo" src="curriculum-vitae.png" alt="" />
           <h4 id="brand">Resume Bank</h4>
         </template>
         <vs-navbar-item :active="active == 'upload'" id="upload">
@@ -12,27 +12,31 @@
         <vs-navbar-item :active="active == 'search'" id="search">
           Search
         </vs-navbar-item>
-    </vs-navbar>
-    <Upload id="upload" v-if="active == 'upload'"></Upload>
-    <Search id="search" v-if="active == 'search'"></Search>
+      </vs-navbar>
+    </div>
+
+    <div id="content">
+      <Upload id="upload" v-if="active == 'upload'"></Upload>
+      <Search id="search" v-if="active == 'search'"></Search>
+    </div>
   </div>
 </template>
 
 
 <script>
-import Upload from './components/Upload'
-import Search from './components/Search'
+import Upload from "./components/Upload";
+import Search from "./components/Search";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
     Upload,
-    Search
+    Search,
   },
-  data:() => ({
-    active: 'upload'
-  })
-}
+  data: () => ({
+    active: "upload",
+  }),
+};
 </script>
 
 
@@ -49,10 +53,7 @@ export default {
   margin-left: 10px;
 }
 
-#upload {
-  margin-top: 100px;
-}
-#search {
-  margin-top: 100px;
+#content {
+  margin-top: 70px;
 }
 </style>

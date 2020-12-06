@@ -84,11 +84,10 @@ async function storeInES(text, filename) {
 
 // API End point responsable for searching Resumes
 app.post('/resumes/search', (req, res) => {
-    console.log(req.body);
+    // Build the query object
     let mustQuery = JSON.parse(JSON.stringify(req.body.query.must).split(',').join(' AND '));
     let optionalQuery = req.body.query.optional;
     let alternativesQuery = req.body.query.alternatives;
-    // Build the query object
     let query = new Object();
     if (mustQuery.length == 0 && alternativesQuery.length == 0 && optionalQuery.length == 0) {
         query = {
@@ -126,23 +125,31 @@ app.post('/resumes/search', (req, res) => {
             })
         }
     }
+    // Query the data
     ESclient.search({
         index: 'resumes',
         body: {
+            from: req.body.query.from,
+            size: req.body.query.size,
             query: query
         }
     }).then(({body}) => {
+        // Build the response object
         let result = new Array();
         body.hits.hits.map(resume => {
             let r = {
-                filename: resume._source.resumeJson.filename
+                filename: resume._source.resumeJson.filename,
+                score: resume._score
             };
             if (resume._source.resumeJson.email) {
                 r.email = resume._source.resumeJson.email;
             }
             result.push(r);
         });
-        res.send(result);
+        res.send({
+            total: body.hits.total.value,
+            result: result
+        });
     }).catch(console.log);
 })
 
