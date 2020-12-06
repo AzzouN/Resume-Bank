@@ -4,7 +4,7 @@ Store resumes and search them in an easy, reliable and fast way
 ## Installation
 Clone the repository :
 ```bash
-$ git clone https://github.com/AzzouN/CV_Indexing.git
+$ git clone https://github.com/AzzouN/Resume-Bank.git
 ```
 
 Install dependencies :
