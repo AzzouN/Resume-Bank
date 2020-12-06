@@ -83,7 +83,7 @@ Three search input categories are provided :
 
 You want to get all the profiles that knows html, css and javascript, and knows either react or angular for front-end development, and knows either express.js or hapi.js for back-end development and show those who knows docker and kubernetes first :
 
-![search_criteria](https://raw.githubusercontent.com/AzzouN/CV_Indexing/main/search.png?token=AFUF424EZGKZAYBZKJZHUJS72YX6Q)
+![search_criteria](https://raw.githubusercontent.com/AzzouN/Resume-Bank/main/search.png?token=AFUF422S5C5S5GIQFW27NB272ZLII)
 
 
 ## Contributors
