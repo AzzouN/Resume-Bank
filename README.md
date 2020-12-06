@@ -4,12 +4,12 @@ Store resumes and search them in an easy, reliable and fast way
 ## Installation
 Clone the repository :
 ```bash
-$ git clone https://github.com/AzzouN/CV_Indexing.git
+$ git clone https://github.com/AzzouN/Resume-Bank.git
 ```
 
 Install dependencies :
 ```bash
-$ cd CV_Indexing
+$ cd Resume-Bank
 $ cd back-end
 $ npm install
 $ cd ../front-end/front-end
@@ -21,12 +21,12 @@ Start ElasticSearch instance
 
 Start Node.js REST API
 ```bash
-$ cd CV_Indexing/back-end
+$ cd Resume-Bank/back-end
 $ npm run dev
 ```
 Start the Vue.js application
 ```bash
-$ cd CV_Indexing/front-end/front-end
+$ cd Resume-Bank/front-end/front-end
 $ npm run serve
 ```
 ### Important
@@ -36,11 +36,11 @@ $ npm run serve
 
 > The ElasticSearch instance runs on port 9200
 
-If you have use one of those ports for anything else, you must change the configuration files.
+If you are using one of those ports for anything else, you must change the configuration files.
 
 To change the REST API port :
 ```bash
-$ cd CV_Indexing/back-end
+$ cd Resume-Bank/back-end
 $ nano .env
 ```
 Add the following line and replace "value" with the desired port number :
@@ -48,14 +48,14 @@ Add the following line and replace "value" with the desired port number :
 
 After changing the REST API port you must update the configuration file in Vue.js application :
 ```bash
-$ cd CV_Indexing/front-end/front-end
+$ cd Resume-Bank/front-end/front-end
 $ nano .env
 ```
 and update the variable VUE_APP_ENV_API
 
 If you changed the ElasticSearch port :
 ```bash
-$ cd CV_Indexing/back-end
+$ cd Resume-Bank/back-end
 $ nano .env
 ```
 and update the variable ES_API
@@ -76,7 +76,7 @@ Three search input categories are provided :
 
 You want to get all the profiles that knows html, css and javascript, and knows either react or angular for front-end development, and knows either express.js or hapi.js for back-end development and show those who knows docker and kubernetes first :
 
-
+![search_criteria](https://raw.githubusercontent.com/AzzouN/CV_Indexing/main/search.png?token=AFUF424EZGKZAYBZKJZHUJS72YX6Q)
 
 
 ## Contributors
