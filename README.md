@@ -9,7 +9,7 @@ $ git clone https://github.com/AzzouN/Resume-Bank.git
 
 Install dependencies :
 ```bash
-$ cd CV_Indexing
+$ cd Resume-Bank
 $ cd back-end
 $ npm install
 $ cd ../front-end/front-end
@@ -21,12 +21,12 @@ Start ElasticSearch instance
 
 Start Node.js REST API
 ```bash
-$ cd CV_Indexing/back-end
+$ cd Resume-Bank/back-end
 $ npm run dev
 ```
 Start the Vue.js application
 ```bash
-$ cd CV_Indexing/front-end/front-end
+$ cd Resume-Bank/front-end/front-end
 $ npm run serve
 ```
 ### Important
@@ -40,7 +40,7 @@ If you are using one of those ports for anything else, you must change the confi
 
 To change the REST API port :
 ```bash
-$ cd CV_Indexing/back-end
+$ cd Resume-Bank/back-end
 $ nano .env
 ```
 Add the following line and replace "value" with the desired port number :
@@ -48,14 +48,14 @@ Add the following line and replace "value" with the desired port number :
 
 After changing the REST API port you must update the configuration file in Vue.js application :
 ```bash
-$ cd CV_Indexing/front-end/front-end
+$ cd Resume-Bank/front-end/front-end
 $ nano .env
 ```
 and update the variable VUE_APP_ENV_API
 
 If you changed the ElasticSearch port :
 ```bash
-$ cd CV_Indexing/back-end
+$ cd Resume-Bank/back-end
 $ nano .env
 ```
 and update the variable ES_API
