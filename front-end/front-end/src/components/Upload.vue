@@ -41,7 +41,7 @@ export default {
     return {
       show_alert: false,
       dropzoneOptions: {
-          url: 'http://localhost:5000/resumes',
+          url: process.env.VUE_APP_ENV_API + 'resumes',
           thumbnailWidth: 150,
           maxFilesize: 5,
       }

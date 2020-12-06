@@ -56,7 +56,7 @@ export default {
   name: "Search",
   data: function () {
     return {
-      apiURL: "http://localhost:5000/",
+      apiURL: process.env.VUE_APP_ENV_API,
       page: 1,
       resumesPerPage: 5,
       resumes: [],
@@ -87,7 +87,7 @@ export default {
         }
       });
       axios
-        .post("http://localhost:5000/resumes/search", { query })
+        .post(process.env.VUE_APP_ENV_API + "resumes/search", { query })
         .then((result) => {
           this.resumes = result.data.result;
           console.log(result.data);

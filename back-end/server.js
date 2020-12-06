@@ -8,10 +8,12 @@ const { createWorker } = require('tesseract.js');
 const { Client } = require('@elastic/elasticsearch')
 var bodyParser = require('body-parser')
 const cors = require('cors');
+const dotenv = require('dotenv');
+dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
-const ESclient = new Client({ node: 'http://localhost:9200' })
+const ESclient = new Client({ node: process.env.ES_API })
 
 app.use(express.static('resumes'));
 app.use(upload()); 
