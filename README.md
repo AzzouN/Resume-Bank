@@ -36,7 +36,7 @@ $ npm run serve
 
 > The ElasticSearch instance runs on port 9200
 
-If you have use one of those ports for anything else, you must change the configuration files.
+If you are using one of those ports for anything else, you must change the configuration files.
 
 To change the REST API port :
 ```bash
@@ -76,7 +76,7 @@ Three search input categories are provided :
 
 You want to get all the profiles that knows html, css and javascript, and knows either react or angular for front-end development, and knows either express.js or hapi.js for back-end development and show those who knows docker and kubernetes first :
 
-
+![search_criteria](https://raw.githubusercontent.com/AzzouN/CV_Indexing/main/search.png?token=AFUF424EZGKZAYBZKJZHUJS72YX6Q)
 
 
 ## Contributors
