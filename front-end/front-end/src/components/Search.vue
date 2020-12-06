@@ -1,7 +1,7 @@
 <template>
   <div class="search">
     <div id="inputArea">
-      <h5>Search criteria</h5>
+      <h5>Search criteria (seperate keywords with comma ",")</h5>
       <vs-input
         class="inputs"
         label="Candidate must know all the following"
@@ -34,7 +34,7 @@
         <div class="resume" v-for="(r, index) in resumes" :key="index">
           <span v-if="r.email"><b>Email : </b> {{ r.email }} </span>
           <span v-if="r.score"><b>Score : </b> {{ r.score }} </span>
-          <vs-button border :active="1 == 0" :href="apiURL+r.filename">
+          <vs-button border :active="1 == 0" @click="download_resume(apiURL+r.filename)">
             Download resume
           </vs-button>
         </div>
@@ -67,6 +67,9 @@ export default {
     };
   },
   methods: {
+    download_resume: function (url) {   
+      window.open(url, "_blank");    
+    },
     add_alternatives: function () {
       this.alternatives.push("");
     },
