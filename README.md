@@ -22,7 +22,7 @@ Start ElasticSearch instance
 Start Node.js REST API
 ```bash
 $ cd Resume-Bank/back-end
-$ npm run dev
+$ npm run start
 ```
 Start the Vue.js application
 ```bash
