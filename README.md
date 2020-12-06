@@ -3,7 +3,11 @@ Store resumes and search them in an easy, reliable and fast way
 
 ## Installation
 ### Requirements
-node.js, npm, vue.js and elasticsearch installed.
+- node.js
+- npm
+- vue.js
+- elasticsearch
+---
 
 Clone the repository :
 ```bash
