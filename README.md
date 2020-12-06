@@ -2,6 +2,9 @@
 Store resumes and search them in an easy, reliable and fast way
 
 ## Installation
+### Requirements
+node.js, npm, vue.js and elasticsearch installed.
+
 Clone the repository :
 ```bash
 $ git clone https://github.com/AzzouN/Resume-Bank.git
